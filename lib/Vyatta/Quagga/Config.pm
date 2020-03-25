@@ -369,6 +369,8 @@ sub _qCommandFind {
     if    (exists $qcom->{$token}->{$action})            { $command = $token; }
     elsif (exists $qcom->{"$command $token"}->{$action}) { $command = "$command $token"; }
     elsif (exists $qcom->{"$command var"}->{$action})    { $command = "$command var"; }
+    elsif ($command eq "protocols bgp var")    { $command = "$command vrf"; }
+    elsif (exists $qcom->{"$command var"}->{$action})    { $command = "$command var"; }
     else { return; }
   }
 

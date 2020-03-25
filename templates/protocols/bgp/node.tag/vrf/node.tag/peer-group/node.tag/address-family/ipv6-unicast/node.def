@@ -1,3 +1,3 @@
 help: IPv6 BGP peer-group parameters
 delete:expression: exec "/opt/vyatta/sbin/vyatta-bgp.pl \
-                           --check-peer-groups-6 --peergroup $VAR(../../@) --as $VAR(../../../@)"
+                           --check-peer-groups-6 --peergroup $VAR(../../@) --as $VAR(../../../../../@) --vrf $VAR(../../../../@)"

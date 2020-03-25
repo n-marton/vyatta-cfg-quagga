@@ -4,4 +4,4 @@ help: BGP peer-group
 syntax:expression: exec "/opt/vyatta/sbin/vyatta-bgp.pl \
                            --check-peergroup-name $VAR(@)"
 delete:expression: exec "/opt/vyatta/sbin/vyatta-bgp.pl \
-                           --check-peer-groups --peergroup $VAR(@) --as $VAR(../@)"
+                           --check-peer-groups --peergroup $VAR(@) --as $VAR(../../../@) --vrf $VAR(../../@)"
