@@ -479,11 +479,15 @@ sub _qtree {
           if (defined $vals[0]) {
             foreach my $val (@vals) {
               my $var = _qVarReplace("$level $node $val", $qcom->{$qcommand}->{$action});
+              # Lazy way to ensure vrf less bgp
+              $var =~ s/vrf novrf//;             
               push @{$vtysh->{"$qcommand"}}, "$level $node $val  \036  $var";
               _pdebug(1, "_qtree leaf node command: $action $level $node $val \n\t\t\t\t\t$var");
             }
           } else {
             my $var = _qVarReplace("$level $node", $qcom->{$qcommand}->{$action});
+            # Lazy way to ensure vrf less bgp
+            $var =~ s/vrf novrf//;
             push @{$vtysh->{"$qcommand"}}, "$level $node  \036  $var";
             _pdebug(1, "_qtree node command: $action $level $node \n\t\t\t\t$var");
           }
